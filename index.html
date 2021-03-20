@@ -8,6 +8,13 @@
             align-items: center;
             font-family: 'Open Sans';
         }
+        .container{
+            border-style: solid;
+            border-color: black;
+            background-color: antiquewhite;
+            padding: 300px;
+            display: grid;
+        }
     </style>
     <head>
         <title>Etch-A-Sketch</title>
@@ -17,11 +24,15 @@
         <div>
             <h1>Etch-A-Sketch</h1>
         </div>
-        <div>
-            <p>Filler text, drawing will go here</p>
+        <div class="container">
         </div>
         <div>
             <p>Buttons here</p>
         </div>
+        <script>
+            const gridSize = 16;
+            const container = document.querySelector('.container');
+            container.setAttribute('style', `grid-template-columns: repeat(${gridSize}, 1fr); grid-template-rows: repeat(${gridSize}, 1fr)`);
+        </script>
     </body>
 </html>
