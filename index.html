@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <style>
-        .center{
+        body{
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -10,17 +10,26 @@
         }
         .container{
             border-style: solid;
-            border-color: black;
+            border-color: #9a1e1e;
+            border-radius: 5%;
+            border-width: 50px;
             background-color: antiquewhite;
-            padding: 300px;
+            width: 600px;
+            height: 600px;
             display: grid;
+        }
+        .empty-pixel{
+            background-color: antiquewhite;
+        }
+        .draw{
+            background-color: black;
         }
     </style>
     <head>
         <title>Etch-A-Sketch</title>
         <meta lang='eng'>
     </head>
-    <body class="center">
+    <body>
         <div>
             <h1>Etch-A-Sketch</h1>
         </div>
@@ -31,8 +40,9 @@
         </div>
         <script>
             const gridSize = 16;
-            const container = document.querySelector('.container');
-            container.setAttribute('style', `grid-template-columns: repeat(${gridSize}, 1fr); grid-template-rows: repeat(${gridSize}, 1fr)`);
+            const etchASketch = document.querySelector('.container');
+            const etchASketchStyle = document.querySelector('.container').style;
+            etchASketch.setAttribute('style', `grid-template-columns: repeat(${gridSize}, 1fr); grid-template-rows: repeat(${gridSize}, 1fr)`);
         </script>
     </body>
 </html>
