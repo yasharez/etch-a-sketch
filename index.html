@@ -51,6 +51,12 @@
                     div.setAttribute('style', `grid-column: ${i} / ${i + 1}; grid-row: ${j} / ${j + 1}`);
                 };
             };
+            const pixels = document.querySelectorAll('.empty-pixel');
+            pixels.forEach((div) => {
+                div.addEventListener('mouseenter', function(){
+                    div.classList.add('draw');
+                });
+            });
         </script>
     </body>
 </html>
