@@ -41,8 +41,16 @@
         <script>
             const gridSize = 16;
             const etchASketch = document.querySelector('.container');
-            const etchASketchStyle = document.querySelector('.container').style;
+            // const etchASketchStyle = document.querySelector('.container').style;
             etchASketch.setAttribute('style', `grid-template-columns: repeat(${gridSize}, 1fr); grid-template-rows: repeat(${gridSize}, 1fr)`);
+            for(i = 1; i < gridSize + 1; i++){
+                for(j = 1; j < gridSize + 1; j++){
+                    let div = document.createElement('div');
+                    etchASketch.appendChild(div);
+                    div.classList.add('empty-pixel');
+                    div.setAttribute('style', `grid-column: ${i} / ${i + 1}; grid-row: ${j} / ${j + 1}`);
+                };
+            };
         </script>
     </body>
 </html>
