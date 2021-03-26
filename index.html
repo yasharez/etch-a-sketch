@@ -44,49 +44,11 @@
         <div class="container">
         </div>
         <div id='button-container'>
-            <input type='range' id='grid-slider' min='16' max='64' value='16'>
+            <input type='range' id='grid-slider' min='16' max='64' value='40'>
             <label for='grid-slider' style="margin-left:5px">Grid Size:</label>
-            <label for='grid-slider'></label>
+            <label for='grid-slider' id='slider-value' style='margin-left:3px'></label>
         </div>
         <button id='clear-button'>Clear</button>
-        <script>
-            let gridSize = 40; //Starter Value for Grid size of etch a sketch
-            let etchASketch = document.querySelector('.container');
-
-            //Function that makes a grid for the input grid-size
-            function makeGrid (gridInput) {
-                etchASketch.setAttribute('style', `grid-template-columns: repeat(${gridInput}, 1fr); grid-template-rows: repeat(${gridInput}, 1fr)`);
-                for(i = 1; i < gridInput + 1; i++){
-                    for(j = 1; j < gridInput + 1; j++){
-                        let div = document.createElement('div');
-                        etchASketch.appendChild(div);
-                        div.classList.add('empty-pixel');
-                        div.setAttribute('style', `grid-column: ${i} / ${i + 1}; grid-row: ${j} / ${j + 1}`);
-                    };
-                };
-                const pixels = document.querySelectorAll('.empty-pixel');
-                pixels.forEach((div) => {
-                    div.addEventListener('mouseenter', function(){
-                        div.classList.add('draw');
-                    });
-                });
-            };
-
-            //Function that clears drawing on button click
-            function clearEtchASketch(){
-                const clearButton = document.getElementById('clear-button');
-                clearButton.addEventListener('click', function(){
-                    const pixels = document.querySelectorAll('.empty-pixel');
-                    pixels.forEach((div) => {
-                        div.classList.remove('draw');
-                    });
-                });
-            };
-
-            makeGrid(gridSize);
-            clearEtchASketch();
-            // let slider = document.getElementById('grid-slider');
-            // console.log(slider.getAttribute('value'));
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>
