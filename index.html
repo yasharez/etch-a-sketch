@@ -18,6 +18,9 @@
             height: 600px;
             display: grid;
         }
+        .clear-button{
+            margin-top: 15px;
+        }
         .empty-pixel{
             background-color: antiquewhite;
         }
@@ -35,28 +38,35 @@
         </div>
         <div class="container">
         </div>
-        <div>
-            <p>Buttons here</p>
+        <div id='button-container'>
+            <input type='range' id='grid-slider' min='16' max='64'>
+            <label for='grid-slider'>Slider Value</label>
         </div>
+        <button class='clear-button'>Clear</button>
         <script>
-            const gridSize = 16;
-            const etchASketch = document.querySelector('.container');
-            // const etchASketchStyle = document.querySelector('.container').style;
-            etchASketch.setAttribute('style', `grid-template-columns: repeat(${gridSize}, 1fr); grid-template-rows: repeat(${gridSize}, 1fr)`);
-            for(i = 1; i < gridSize + 1; i++){
-                for(j = 1; j < gridSize + 1; j++){
-                    let div = document.createElement('div');
-                    etchASketch.appendChild(div);
-                    div.classList.add('empty-pixel');
-                    div.setAttribute('style', `grid-column: ${i} / ${i + 1}; grid-row: ${j} / ${j + 1}`);
+            const gridSize = 16; //Starter Value for Grid size of etch a sketch
+            let etchASketch = document.querySelector('.container');
+
+            //Function that makes a grid for the input grid-size
+            function makeGrid (gridSize) {
+                etchASketch.setAttribute('style', `grid-template-columns: repeat(${gridSize}, 1fr); grid-template-rows: repeat(${gridSize}, 1fr)`);
+                for(i = 1; i < gridSize + 1; i++){
+                    for(j = 1; j < gridSize + 1; j++){
+                        let div = document.createElement('div');
+                        etchASketch.appendChild(div);
+                        div.classList.add('empty-pixel');
+                        div.setAttribute('style', `grid-column: ${i} / ${i + 1}; grid-row: ${j} / ${j + 1}`);
+                    };
                 };
-            };
-            const pixels = document.querySelectorAll('.empty-pixel');
-            pixels.forEach((div) => {
-                div.addEventListener('mouseenter', function(){
-                    div.classList.add('draw');
+                const pixels = document.querySelectorAll('.empty-pixel');
+                pixels.forEach((div) => {
+                    div.addEventListener('mouseenter', function(){
+                        div.classList.add('draw');
+                    });
                 });
-            });
+            };
+
+            makeGrid(gridSize);
         </script>
     </body>
 </html>
