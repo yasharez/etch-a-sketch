@@ -13,7 +13,7 @@ function makeGrid (gridInput) {
     };
     const pixels = document.querySelectorAll('.empty-pixel');
     pixels.forEach((div) => {
-        div.addEventListener('mouseenter', function(){
+        div.addEventListener('mouseover', function(){
             div.classList.add('draw');
         });
     });
