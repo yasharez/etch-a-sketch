@@ -34,11 +34,14 @@ function clearEtchASketch(){
 const slider = document.getElementById('grid-slider');
 const sliderValue = document.getElementById('slider-value');
 sliderValue.textContent = slider.defaultValue;
-slider.addEventListener('change', function(){
-    clearEtchASketch();
-    makeGrid(slider.value);
-    sliderValue.textContent = slider.value;
-});
-
-makeGrid(slider.defaultValue);
+function changeGrid(){
+    slider.addEventListener('input', function(){
+        clearEtchASketch();
+        makeGrid(Number(slider.value));
+        sliderValue.textContent = slider.value;
+    });
+};
+const sliderDefaultValue = slider.defaultValue;
+makeGrid(Number(slider.defaultValue));
+changeGrid();
 clearEtchASketch();
